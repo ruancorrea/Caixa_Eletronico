@@ -23,8 +23,8 @@ public class Saque implements Protocolo {
             for(String p : server.getContas().keySet()){
                 if(p.equals(nome)){
                     if(server.getContas().get(p).getSenha().equals(senha)){
-                        Server appCOPY = new Server(server.getContas().get(nome), valor, server.getContas(), server.getArquivo(), server.getGravador());
-                        new Thread(appCOPY, nome).start();
+                        Server serverCOPY = new Server(server.getContas().get(nome), valor, server.getContas(), server.getArquivo(), server.getGravador());
+                        new Thread(serverCOPY, nome).start();
 
                         achou = 1;
                         reply.setStatus( Status.OK );

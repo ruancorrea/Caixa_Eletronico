@@ -1,5 +1,5 @@
-cesar,tonho,123
 ruanito,jose12,100
-rhcs,ruan12,100
+rhcs,ruan12,90
+fulano,detal10,20
 ruan,correa,115
 pudinzinho,peludo,320
