@@ -9,7 +9,8 @@
    <p>Disciplina Redes de Computadores<br/>
    Professor Leandro Sales<br/>
    Curso Engenharia de Computação<br/>
-   Alunos:<br/><a href = "https://github.com/joaopedrobritot" target="_blank"> Joao Pedro Brito Tomé</a><br/> <a href = "https://github.com/ruancorrea" target="_blank">Ruan Heleno Correa da Silva</a></p>
+   Alunos: &emsp;&emsp;&emsp;&emsp;<a href = "https://github.com/joaopedrobritot" target="_blank" >Joao Pedro Brito Tomé</a><br/>
+      &emsp;&emsp;&emsp;&emsp;<a href = "https://github.com/ruancorrea" target="_blank" >Ruan Heleno Correa da Silva</a></p>
 </div>
 
 ### Ambiente e versões
