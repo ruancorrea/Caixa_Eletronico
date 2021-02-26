@@ -33,7 +33,19 @@ public class Client {
     }
 
     public int newInt() {
-        return entrada.nextInt();
+        int valor;
+        while(true)
+        {
+            try{
+                valor = entrada.nextInt();
+                break;
+            }
+            catch(InputMismatchException e){
+                printf("\nO valor inserido não é um número inteiro!\nTente novamente: ")
+            }
+        }
+        
+        return valor;
     }
 
     public void criandoSocket() throws IOException {
