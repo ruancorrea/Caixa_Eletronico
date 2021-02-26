@@ -4,6 +4,7 @@ import com.jpbtrhcs.caixaeletronico.client.service.OpcaoMenu;
 import com.jpbtrhcs.caixaeletronico.client.service.TipoOpcaoMenu;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
