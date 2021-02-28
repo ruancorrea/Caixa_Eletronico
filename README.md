@@ -122,19 +122,19 @@ private void criandoServerSocket(int port) throws IOException {
 <p><i>O servidor continua rodando em um loop infinito até que o desenvolvedor finalize a execução.</i></p>
 
 ```java
-private void tratandoConexao(Socket socket, Server app) throws IOException, ClassNotFoundException {
-    ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
-    ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
-    // protocolos [...]
-    Mensagem reply = protocolos.invoke(app, operacao);
-    output.writeObject(reply);
-    output.flush();
-
-    input.close();
-    output.close();
-
-    socket.close();
-}
+public void iniciarServico() throws ClassNotFoundException {
+        try {
+            //[...]
+            criandoServerSocket(5000);
+            while (true){
+                System.out.println("Aguardando conexao...");
+                Socket cliente=serverSocket.accept();
+                //[...]
+            }
+        } catch (IOException exception) {
+                System.err.println(exception.getMessage());
+        }
+    }
 ```
 
 ## Threads
@@ -170,7 +170,7 @@ public void iniciarServico() throws ClassNotFoundException {
                 new Thread(new ClientThread(cliente, arquivo, contas)).start();
             }
         } catch (IOException exception) {
-        System.err.println(exception.getMessage());
+            System.err.println(exception.getMessage());
         }
     }
 ```
