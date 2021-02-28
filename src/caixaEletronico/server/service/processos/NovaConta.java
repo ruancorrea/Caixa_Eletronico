@@ -16,6 +16,7 @@ public class NovaConta implements Processo {
         String senha = (String) mensagem.getParam("senha");
         int saldo = (int) mensagem.getParam("saldo");
         Mensagem reply = new Mensagem("NOVACONTAREPLY");
+        System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(nome == null || senha == null || saldo < 1){

@@ -15,6 +15,7 @@ public class LoginSenha implements Processo {
         String senha = (String) mensagem.getParam("senha");
         String nome = (String) mensagem.getParam("nome");
         Mensagem reply = new Mensagem("LOGINSENHAREPLY");
+        System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(senha == null || nome == null){

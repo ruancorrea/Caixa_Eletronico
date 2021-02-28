@@ -16,6 +16,7 @@ public class Saque implements Processo {
         String senha = (String) mensagem.getParam("senha");
         int valor = (int) mensagem.getParam("valor");
         Mensagem reply = new Mensagem("SAQUEREPLY");
+        System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(nome == null || senha == null || valor < 1){

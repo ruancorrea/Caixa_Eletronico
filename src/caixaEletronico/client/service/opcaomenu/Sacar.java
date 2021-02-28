@@ -89,19 +89,12 @@ public class Sacar implements OpcaoMenu {
 
         cliente.output.writeObject(m);
         cliente.output.flush();
-        System.out.println("Mensagem " + m + " enviada");
+        System.out.println("\nMensagem " + m + "enviada\n");
     }
 
     private void respostaServer() throws IOException, ClassNotFoundException {
         m = (Mensagem) cliente.input.readObject();
-        System.out.println("Resposta " + m);
-
-        if(m.getStatus() == Status.OK){
-            String resposta = (String) m.getParam("mensagem");
-            System.out.println("Mensagem: " + resposta);
-        }else{
-            System.out.println("Erro: " + m.getStatus());
-        }
+        System.out.println("Status " + m.getStatus());
     }
 }
 

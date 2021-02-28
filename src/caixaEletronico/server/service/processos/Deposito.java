@@ -15,6 +15,7 @@ public class Deposito implements Processo {
         String nome = (String) mensagem.getParam("nome");
         int valor = (int) mensagem.getParam("valor");
         Mensagem reply = new Mensagem("DEPOSITOREPLY");
+        System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(nome == null || valor < 1){

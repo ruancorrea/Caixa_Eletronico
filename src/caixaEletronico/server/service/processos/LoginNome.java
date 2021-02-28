@@ -14,6 +14,7 @@ public class LoginNome implements Processo {
     public Mensagem execute(Arquivo arquivo, HashMap<String, Conta> contas, Mensagem mensagem)  throws IOException {
         String nome = (String) mensagem.getParam("nome");
         Mensagem reply = new Mensagem("LOGINNOMEREPLY");
+        System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(nome == null){

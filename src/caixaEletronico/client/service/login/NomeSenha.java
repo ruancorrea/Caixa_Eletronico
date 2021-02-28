@@ -59,22 +59,13 @@ public class NomeSenha implements Login {
 
         cliente.output.writeObject(m);
         cliente.output.flush();
-        System.out.println("Mensagem " + m + " enviada");
+        System.out.println("\nMensagem " + m + "enviada\n");
     }
 
     @Override
     public void respostaServer(Cliente cliente) throws IOException, ClassNotFoundException {
         m = (Mensagem) cliente.input.readObject();
-        System.out.println("Resposta " + m);
-
-
-
-        if(m.getStatus() == Status.OK){
-            String resposta = (String) m.getParam("mensagem");
-            System.out.println("Mensagem: " + resposta);
-        }else{
-            System.out.println("Erro: " + m.getStatus());
-        }
+        System.out.println("Status " + m.getStatus());
     }
 
     @Override

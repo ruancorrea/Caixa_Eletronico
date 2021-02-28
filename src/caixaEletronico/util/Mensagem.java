@@ -38,12 +38,13 @@ public class Mensagem implements Serializable{
 
     @Override
     public String toString(){
-        String m = "Operacao: " + operacao;
+        String m = "\nOperacao: " + operacao;
         m += "\nStatus: " + status;
-        m += "\nParametros:\n ";
+        m += "\nParametros:";
         for(String p : params.keySet()){
             m += "\n" + p + ": " + params.get(p);
         }
+        m += "\n";
         return m;
     }
 }

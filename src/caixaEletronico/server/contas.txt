@@ -1,4 +1,4 @@
-joao,jpbt,30
+joao,jpbt,40
 rhcs,ruan12,80
 fulano,detal10,20
-ruan,correa,32
+ruan,correa,60

@@ -1,7 +1,4 @@
-joao,jpbt,30
-ruanito,jose12,100
+joao,jpbt,40
 rhcs,ruan12,80
 fulano,detal10,20
-ruan,correa,20
-ruhrenheit,mister10,200
-pudinzinho,peludo,320
+ruan,correa,45

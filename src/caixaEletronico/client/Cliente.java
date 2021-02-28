@@ -37,7 +37,8 @@ public class Cliente {
                 valor = entrada.nextInt();
                 break;
             }catch(InputMismatchException e){
-                System.out.printf("\nO valor inserido não é inteiro. Tente novamente.\n\n");
+                System.out.print("\nO valor inserido nao eh inteiro. Tente novamente.\n>> ");
+                entrada.next();
             }
         }
         return valor;
@@ -45,7 +46,7 @@ public class Cliente {
 
     public void criandoSocket() throws IOException {
         socket = new Socket("127.0.0.1", 5000);
-        System.out.println("Conectado com o servidor.");
+        System.out.println("Conectado com o servidor.\n");
         output = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
     }
@@ -54,7 +55,7 @@ public class Cliente {
         input.close();
         output.close();
         socket.close();
-        System.out.println("Conexao com o servidor finalizada.");
+        System.out.println("Conexao com o servidor finalizada.\n");
     }
 
     public void iniciar() throws IOException, ClassNotFoundException {

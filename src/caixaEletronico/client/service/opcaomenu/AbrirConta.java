@@ -6,7 +6,6 @@ import caixaEletronico.util.Mensagem;
 import caixaEletronico.util.Status;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 public class AbrirConta implements OpcaoMenu {
     private Cliente cliente;
@@ -26,17 +25,17 @@ public class AbrirConta implements OpcaoMenu {
     }
 
     private void abrindoConta() throws IOException, ClassNotFoundException {
+        String[] dadosConta = null;
         while(true){
             System.out.println("Informe nome, senha e saldo inicial, separados por vírgula.");
             System.out.print("EXEMPLO: fulano,detal10,20\n>> ");
             String dados = cliente.newString();
-
-            String[] dadosConta = dados.split(",");
+            dadosConta = dados.split(",");
             try{
-                dadosConta[2] = Integer.parseInt(dadosConta[2]);
+                int n = Integer.parseInt(dadosConta[2]);
                 break;
             }
-            catch(ParseException e){
+            catch(NumberFormatException e){
                 System.out.printf("\nO valor inserido no salário é incorreto, por favor tente novamente.\n\n");
             }
         }
@@ -64,19 +63,12 @@ public class AbrirConta implements OpcaoMenu {
 
         cliente.output.writeObject(m);
         cliente.output.flush();
-        System.out.println("Mensagem " + m + " enviada");
+        System.out.println("\nMensagem " + m + "enviada\n");
     }
 
     private void respostaServer() throws IOException, ClassNotFoundException {
         m = (Mensagem) cliente.input.readObject();
-        System.out.println("Resposta " + m);
-
-        if(m.getStatus() == Status.OK){
-            String resposta = (String) m.getParam("mensagem");
-            System.out.println("Mensagem: " + resposta);
-        }else{
-            System.out.println("Erro: " + m.getStatus());
-        }
+        System.out.println("Status " + m.getStatus());
     }
 
 }
