@@ -1,7 +1,7 @@
 <div align = "center">
    <h1>Projeto Caixa Eletrônico</h1>
    <h2>Criação de socket e protocolo de aplicação Client-Servidor que simula um Caixa Eletrônico</h2>
-   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/rfct/src/com/jpbtrhcs/caixaeletronico/assets/capa.png?raw=true">
+   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/main/src/caixaEletronico/assets/capa.png?raw=true">
    </img>
 </div>
 
