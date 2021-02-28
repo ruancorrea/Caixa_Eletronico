@@ -6,6 +6,7 @@ import caixaEletronico.util.Mensagem;
 import caixaEletronico.util.Status;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class AbrirConta implements OpcaoMenu {
     private Cliente cliente;
@@ -25,11 +26,22 @@ public class AbrirConta implements OpcaoMenu {
     }
 
     private void abrindoConta() throws IOException, ClassNotFoundException {
-        System.out.println("Informe nome, senha e saldo inicial, separados por vírgula.");
-        System.out.print("EXEMPLO: fulano,detal10,20\n>> ");
-        String dados = cliente.newString();
+        while(true){
+            System.out.println("Informe nome, senha e saldo inicial, separados por vírgula.");
+            System.out.print("EXEMPLO: fulano,detal10,20\n>> ");
+            String dados = cliente.newString();
 
-        String[] dadosConta = dados.split(",");
+            String[] dadosConta = dados.split(",");
+            try{
+                dadosConta[2] = Integer.parseInt(dadosConta[2]);
+                break;
+            }
+            catch(ParseException e){
+                System.out.printf("\nO valor inserido no salário é incorreto, por favor tente novamente.\n\n");
+            }
+        }
+        
+        
         if(verificacao(dadosConta)){
             cliente.criandoSocket();
             solicitacao(dadosConta);

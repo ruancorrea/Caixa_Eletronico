@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Cliente {
     private Scanner entrada;
@@ -30,7 +31,16 @@ public class Cliente {
     }
 
     public int newInt() {
-        return entrada.nextInt();
+        int valor = 0;
+        while(true){
+            try{
+                valor = entrada.nextInt();
+                break;
+            }catch(InputMismatchException e){
+                System.out.printf("\nO valor inserido não é inteiro. Tente novamente.\n\n");
+            }
+        }
+        return valor;
     }
 
     public void criandoSocket() throws IOException {
