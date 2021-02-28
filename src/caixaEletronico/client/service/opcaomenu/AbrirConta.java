@@ -16,7 +16,7 @@ public class AbrirConta implements OpcaoMenu {
     public AbrirConta(Cliente cliente){
         this.cliente = cliente;
         m = new Mensagem("NOVACONTA");
-    }
+    } 
     @Override
     public void opcaoEscolhida(Cliente c) throws IOException, ClassNotFoundException  {
         AbrirConta abrirConta = new AbrirConta(c);
