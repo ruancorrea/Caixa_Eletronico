@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Mensagem implements Serializable{
-    private Status status;
+    private int status;
     private String operacao; // LOGINsenha, LOGINnome, SAQUE, DEPOSITO, ABRIRconta
 
     Map<String, Object> params;
@@ -20,11 +20,11 @@ public class Mensagem implements Serializable{
         return operacao;
     }
 
-    public Status getStatus(){
+    public int getStatus(){
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -48,5 +48,3 @@ public class Mensagem implements Serializable{
         return m;
     }
 }
-
-

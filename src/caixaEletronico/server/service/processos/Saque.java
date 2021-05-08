@@ -4,8 +4,6 @@ import caixaEletronico.server.Arquivo;
 import caixaEletronico.server.Conta;
 import caixaEletronico.server.service.Processo;
 import caixaEletronico.util.Mensagem;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -16,18 +14,18 @@ public class Saque implements Processo {
         String senha = (String) mensagem.getParam("senha");
         int valor = (int) mensagem.getParam("valor");
         Mensagem reply = new Mensagem("SAQUEREPLY");
-        System.out.println("Operacao: " + reply.getOperacao());
+        //System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(nome == null || senha == null || valor < 1){
-            reply.setStatus( Status.PARAMERROR );
+            reply.setStatus( 411 ); // PARAMERROR
         }else{
 
             for(String p : contas.keySet()){
                 if(p.equals(nome)){
                     if(contas.get(p).getSenha().equals(senha)){
                         if(valor > contas.get(p).getSaldo()){
-                            reply.setStatus(Status.ERROR);
+                            reply.setStatus( 400 ); // ERROR
                             reply.setParam("mensagem", "Saldo insuficiente para a operação");
                             return reply;
                         }
@@ -37,7 +35,7 @@ public class Saque implements Processo {
                 }
             }
             if(achou == 0){
-                reply.setStatus( Status.ERROR );
+                reply.setStatus( 400 ); // ERROR
                 reply.setParam("mensagem", "Conta não encontrada.");
             }
         }
@@ -57,12 +55,12 @@ public class Saque implements Processo {
             System.out.println("[" + conta.getNome() + "] saque de " + valor + ". [Saldo original=" + saldoOriginal + ", Saldo final=" + conta.getSaldo() + "]");
             contas.put(conta.getNome(), conta);
             arquivo.salvandoArquivo(contas);
-            reply.setStatus( Status.OK );
+            reply.setStatus( 200 ); // OK
             reply.setParam("mensagem", "Saque feito no valor de R$ " + valor + " na conta encontrada de nome: " + conta.getNome());
 
         } else {
             System.out.println("[" + conta.getNome() + "] Nao eh possivel sacar!");
-            reply.setStatus( Status.OK );
+            reply.setStatus( 400 ); // ERROR
             reply.setParam("mensagem", "Nao eh possivel sacar!");
         }
         return reply;

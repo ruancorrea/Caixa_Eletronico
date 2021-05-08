@@ -32,7 +32,7 @@ public class Servidor{
             while (true) {
                 System.out.println("Aguardando conexao...");
                 Socket cliente = serverSocket.accept();
-                System.out.println("Cliente " + cliente.getInetAddress() + " conectado.");
+                System.out.println("\n\nCliente " + cliente.getInetAddress() + " conectado.");
                 new Thread(new ClientThread(cliente, arquivo, contas)).start();
             }
         } catch (IOException exception) {

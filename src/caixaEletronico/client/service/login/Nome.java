@@ -3,8 +3,6 @@ package caixaEletronico.client.service.login;
 import caixaEletronico.client.Cliente;
 import caixaEletronico.client.service.Login;
 import caixaEletronico.util.Mensagem;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 
 public class Nome implements Login {
@@ -29,7 +27,7 @@ public class Nome implements Login {
     }
 
     @Override
-    public Status login(Cliente cliente) throws IOException, ClassNotFoundException {
+    public int login(Cliente cliente) throws IOException, ClassNotFoundException {
         System.out.println("\n:: Login ::\n");
         System.out.print("Digite o nome da conta. Digite 0 para voltar\n>> ");
         String opcao = cliente.newString();
@@ -61,12 +59,12 @@ public class Nome implements Login {
 
     @Override
     public void solicitacao(Cliente cliente, String[] dados) throws IOException, ClassNotFoundException {
-        m.setStatus( Status.SOLICITACAO );
+        m.setStatus( 373 ); // SOLICITACAO
         m.setParam("nome", dados[0]);
 
         cliente.output.writeObject(m);
         cliente.output.flush();
-        System.out.println("\nMensagem " + m + "enviada\n");
+        //System.out.println("\nMensagem " + m + "enviada\n");
     }
 
     @Override

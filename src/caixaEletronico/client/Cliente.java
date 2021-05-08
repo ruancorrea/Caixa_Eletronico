@@ -45,8 +45,8 @@ public class Cliente {
     }
 
     public void criandoSocket() throws IOException {
-        socket = new Socket("127.0.0.1", 5000);
-        System.out.println("Conectado com o servidor.\n");
+        socket = new Socket("localhost", 5000);
+        System.out.println("\nConectado com o servidor.\n");
         output = new ObjectOutputStream(socket.getOutputStream());
         input = new ObjectInputStream(socket.getInputStream());
     }

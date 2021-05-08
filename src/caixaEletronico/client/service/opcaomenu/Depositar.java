@@ -4,8 +4,6 @@ import caixaEletronico.client.service.Login;
 import caixaEletronico.client.service.OpcaoMenu;
 import caixaEletronico.client.service.TipoLogin;
 import caixaEletronico.util.Mensagem;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 
 public class Depositar implements OpcaoMenu {
@@ -34,8 +32,8 @@ public class Depositar implements OpcaoMenu {
         Depositar depositar = new Depositar(c);
         TipoLogin tipoLogin = TipoLogin.values()[1];;
         Login login = tipoLogin.obterLogin();
-        Status status = login.login(c);
-        if (status == Status.OK) {
+        int status = login.login(c);
+        if (status == 200) { // OK
             depositar.setNome(login.getNome());
             depositar.depositando();
         }else System.out.println("Erro no login: " + status);
@@ -68,13 +66,13 @@ public class Depositar implements OpcaoMenu {
 
     private void solicitacao() throws IOException, ClassNotFoundException{
         m = new Mensagem("DEPOSITO");
-        m.setStatus( Status.SOLICITACAO );
+        m.setStatus( 373 ); // SOLICITACAO
         m.setParam("nome", getNome());
         m.setParam("valor", valor);
 
         cliente.output.writeObject(m);
         cliente.output.flush();
-        System.out.println("\nMensagem " + m + "enviada\n");
+      //  System.out.println("\nMensagem " + m + "enviada\n");
     }
 
     private void respostaServer() throws IOException, ClassNotFoundException {

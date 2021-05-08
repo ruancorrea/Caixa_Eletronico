@@ -4,8 +4,6 @@ import caixaEletronico.server.Arquivo;
 import caixaEletronico.server.Conta;
 import caixaEletronico.server.service.Processo;
 import caixaEletronico.util.Mensagem;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -15,24 +13,24 @@ public class LoginSenha implements Processo {
         String senha = (String) mensagem.getParam("senha");
         String nome = (String) mensagem.getParam("nome");
         Mensagem reply = new Mensagem("LOGINSENHAREPLY");
-        System.out.println("Operacao: " + reply.getOperacao());
+        //System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(senha == null || nome == null){
-            reply.setStatus( Status.PARAMERROR );
+            reply.setStatus( 411 ); // PARAMERROR
         }else{
 
             for(String p : contas.keySet()){
                 if(p.equals(nome)){
                     if(contas.get(p).getSenha().equals(senha)){
                         achou = 1;
-                        reply.setStatus( Status.OK );
+                        reply.setStatus( 200 ); // OK
                         reply.setParam("mensagem", "Conta encontrada de nome: " + nome + " e senha: " + senha + " tendo saldo de R$ " + contas.get(p).getSaldo());
                     }
                 }
             }
             if(achou == 0){
-                reply.setStatus( Status.ERROR );
+                reply.setStatus( 400 ); // ERROR
                 reply.setParam("mensagem", "Conta não encontrada.");
             }
         }

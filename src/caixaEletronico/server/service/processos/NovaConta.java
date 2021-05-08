@@ -4,8 +4,6 @@ import caixaEletronico.server.Arquivo;
 import caixaEletronico.server.Conta;
 import caixaEletronico.server.service.Processo;
 import caixaEletronico.util.Mensagem;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -16,26 +14,25 @@ public class NovaConta implements Processo {
         String senha = (String) mensagem.getParam("senha");
         int saldo = (int) mensagem.getParam("saldo");
         Mensagem reply = new Mensagem("NOVACONTAREPLY");
-        System.out.println("Operacao: " + reply.getOperacao());
+       // System.out.println("Operacao: " + reply.getOperacao());
         int achou = 0;
 
         if(nome == null || senha == null || saldo < 1){
-            reply.setStatus( Status.PARAMERROR );
+            reply.setStatus( 411 ); // PARAMERROR
         }else{
 
             for(String p : contas.keySet()){
                 if(p.equals(nome)){
-                    reply.setStatus( Status.ERROR );
+                    reply.setStatus( 400 ); // ERROR
                     System.out.println("Conta já existente");
                     achou = 1;
                 }
             }
             if(achou == 0){
-                reply.setStatus( Status.OK );
                 Conta conta = new Conta(nome, senha, saldo);
                 contas.put(nome, conta);
                 arquivo.salvandoArquivo(contas);
-                reply.setStatus( Status.OK );
+                reply.setStatus( 200 ); // OK
                 reply.setParam("mensagem", "Conta criada com:\nNome: " + nome + "\nSenha: " + senha + "\nSaldo: " + saldo );
             }
         }

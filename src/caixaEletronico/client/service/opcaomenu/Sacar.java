@@ -5,8 +5,6 @@ import caixaEletronico.client.service.Login;
 import caixaEletronico.client.service.OpcaoMenu;
 import caixaEletronico.client.service.TipoLogin;
 import caixaEletronico.util.Mensagem;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 
 public class Sacar implements OpcaoMenu {
@@ -52,8 +50,8 @@ public class Sacar implements OpcaoMenu {
         Sacar sacar = new Sacar(c);
         TipoLogin tipoLogin = TipoLogin.values()[0];
         Login login = tipoLogin.obterLogin();
-        Status status = login.login(c);
-        if (status == Status.OK) {
+        int status = login.login(c);
+        if (status == 200) { // OK
             sacar.setNome(login.getNome());
             sacar.setSenha(login.getSenha());
             sacar.sacando();
@@ -82,14 +80,14 @@ public class Sacar implements OpcaoMenu {
     }
 
     private void solicitacao() throws IOException, ClassNotFoundException {
-        m.setStatus( Status.SOLICITACAO );
+        m.setStatus( 373 ); // SOLICITACAO
         m.setParam("nome", getNome());
         m.setParam("senha", getSenha());
         m.setParam("valor", getValor());
 
         cliente.output.writeObject(m);
         cliente.output.flush();
-        System.out.println("\nMensagem " + m + "enviada\n");
+      //  System.out.println("\nMensagem " + m + "enviada\n");
     }
 
     private void respostaServer() throws IOException, ClassNotFoundException {

@@ -4,7 +4,6 @@ import caixaEletronico.server.Arquivo;
 import caixaEletronico.server.Conta;
 import caixaEletronico.server.service.Invoker;
 import caixaEletronico.util.Mensagem;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.HashMap;
@@ -33,6 +32,8 @@ public class ClientThread implements Runnable{
 
         Mensagem reply = processos.invoke(operacao,arquivo,contas,mensagem);
         output.writeObject(reply);
+        System.out.println("\nInformacoes de resposta:" + socket.getInetAddress());
+        System.out.println(reply);
         output.flush();
 
         input.close();
@@ -43,7 +44,6 @@ public class ClientThread implements Runnable{
 
     @Override
     public void run() {
-
         try {
             tratandoConexao(socket);
         } catch (IOException e) {

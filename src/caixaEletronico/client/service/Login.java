@@ -1,13 +1,11 @@
 package caixaEletronico.client.service;
 
 import caixaEletronico.client.Cliente;
-import caixaEletronico.util.Status;
-
 import java.io.IOException;
 
 public interface Login {
 
-    public Status login(Cliente client) throws IOException, ClassNotFoundException;
+    public int login(Cliente client) throws IOException, ClassNotFoundException;
 
     public boolean verificando(String[] dados);
 
