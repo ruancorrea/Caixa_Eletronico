@@ -10,19 +10,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Invoker {
-    public Map<String,Processo> processos;
+    public Map<String, Operacao> operacoes;
 
     public Invoker(){
-        processos = new HashMap<String,Processo>();
-        processos.put("DEPOSITO", new Deposito());
-        processos.put("LOGINNOME", new LoginNome());
-        processos.put("LOGINSENHA", new LoginSenha());
-        processos.put("NOVACONTA", new NovaConta());
-        processos.put("SAQUE", new Saque());
+        operacoes = new HashMap<String, Operacao>();
+        operacoes.put("DEPOSITO", new Deposito());
+        operacoes.put("LOGINNOME", new LoginNome());
+        operacoes.put("LOGINSENHA", new LoginSenha());
+        operacoes.put("NOVACONTA", new NovaConta());
+        operacoes.put("SAQUE", new Saque());
     }
 
     public Mensagem invoke(String command, Arquivo arquivo, HashMap<String, Conta> contas, Mensagem mensagem) throws IOException {
-        return processos.get(command).execute(arquivo,contas,mensagem);
+        return operacoes.get(command).execute(arquivo,contas,mensagem);
     }
 
 }

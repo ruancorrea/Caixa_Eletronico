@@ -12,6 +12,7 @@ public class Servidor{
     private ServerSocket serverSocket;
     private String path = "src/caixaEletronico/server/contas.txt";
 
+
     public Servidor() {
         this.contas = new HashMap<String, Conta>();
         this.arquivo = new Arquivo(path);

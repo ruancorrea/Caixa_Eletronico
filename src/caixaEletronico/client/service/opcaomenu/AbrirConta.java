@@ -66,7 +66,8 @@ public class AbrirConta implements OpcaoMenu {
 
     private void respostaServer() throws IOException, ClassNotFoundException {
         m = (Mensagem) cliente.input.readObject();
-        System.out.println("Status " + m.getStatus());
+        System.out.println("Status: " + m.getStatus());
+        System.out.println("Resposta: " + m.getParam("mensagem") + "\n");
     }
 
 }

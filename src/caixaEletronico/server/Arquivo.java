@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.HashMap;
 
 public class Arquivo {
+    
     private File arquivo;
     private BufferedReader leitor;
     private BufferedWriter gravador;

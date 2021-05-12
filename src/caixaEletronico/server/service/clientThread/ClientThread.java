@@ -23,16 +23,17 @@ public class ClientThread implements Runnable{
         ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
 
-        // processos 
+        // operações
         System.out.println("Tratando...");
         Mensagem mensagem = (Mensagem) input.readObject();
-        String operacao = mensagem.getOperacao();
-
-        Invoker processos = new Invoker();
-
-        Mensagem reply = processos.invoke(operacao,arquivo,contas,mensagem);
-        output.writeObject(reply);
         System.out.println("\nInformacoes de resposta:" + socket.getInetAddress());
+        System.out.println("Status: " + mensagem.getStatus() );
+        String operacao = mensagem.getOperacao();
+        System.out.println("Operação: " + operacao);
+        Invoker operacoes = new Invoker();
+
+        Mensagem reply = operacoes.invoke(operacao,arquivo,contas,mensagem);
+        output.writeObject(reply);
         System.out.println(reply);
         output.flush();
 

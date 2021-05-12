@@ -2,12 +2,12 @@ package caixaEletronico.server.service.processos;
 
 import caixaEletronico.server.Arquivo;
 import caixaEletronico.server.Conta;
-import caixaEletronico.server.service.Processo;
+import caixaEletronico.server.service.Operacao;
 import caixaEletronico.util.Mensagem;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Deposito implements Processo {
+public class Deposito implements Operacao {
     @Override
     public Mensagem execute(Arquivo arquivo, HashMap<String,Conta> contas, Mensagem mensagem)  throws IOException {
         String nome = (String) mensagem.getParam("nome");

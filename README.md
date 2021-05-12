@@ -14,8 +14,9 @@
     &emsp;&emsp;&emsp;&emsp;<a href = "https://github.com/ruancorrea" target="_blank" >Ruan Heleno Correa da Silva</a></p>
 </div>
 
-### Ambiente e versões
+### Ambientes e versões
 
+O projeto foi feito em java contendo:
 
 #### javac
 ```javac 11.0.10```
@@ -23,25 +24,46 @@
 #### jdk
 ```openjdk version "11.0.10" 2021-01-19```
 
-<p>Foram utilizados no ambiente de desenvolvimento a IDE do VS Code configurado com as extensões JAVA da Microsoft e também o software do Intellij. <b>Executamos o programa via Runtime.</b></p>
+
+<p>Foram utilizados no ambiente de desenvolvimento o editor de texto VS Code configurado com as extensões JAVA da Microsoft e também a IDE do Intellij.</p>
+
+### Como executar
+
+<p>Clonando repositório</p>
+
+$ git clone <link repositorio>
+
+$ cd Caixa_Eletronico
+
+#### IDE Intellij(recomendado)
+
+<p>Caso utilize a IDE Intellij, então abra o software no diretório do projeto. Edite as configurações para criar a execução do servidor e do(s) cliente(s)</p>
+
+<p>Na classe Servidor, presente em Caixa_Eletronico/src/caixaEletronico/server, verifique se o caminho do arquivo(variável path) é <b>"src/caixaEletronico/server/contas.txt"</b> </p>
+
+#### VS Code
+
+<p>Caso esteja utilizando o VS Code, é necessário instalar as extensões do Java, da Microsoft e a extensão Code Runner, e depois rodar em "Run Java"</p>
+
+<p>Na classe Servidor, presente em Caixa_Eletronico/src/caixaEletronico/server, verifique se o caminho do arquivo(variável path) é <b>"Caixa_Eletronico/src/caixaEletronico/server/contas.txt"</b> </p>
 
 ## Introdução
 
 <p>Neste documento há a especificação de um protocolo da camada de aplicação com arquitetura Cliente-Servidor para simular funcionalidades de um caixa eletrônico numa implementação multi-thread em que podem ser abertas várias guias de terminal representando os clientes, desde que o servidor seja executado primeiro. Oferecendo a transferência de dados de forma confiável (diferentemente da UDP), o protocolo TCP foi o escolhido para a da aplicação rodar. A porta utilizada pelo protocolo é a <b>5000</b>. </br>
 
 <b>Porta padrão:</b> 5000 <br/>
-<b>Arquitetura:</b> Cliente-Servidor <br/>
+<b>Arquitetura de aplicação:</b> Cliente-Servidor <br/>
 <b>Protocolo na camada de transporte:</b> TCP <br/>
 <b>Padrão de caracteres:</b> ASCII <br/>
 </p>
 
 ## Cliente-Servidor
 
-<p>A arquitetura utilizada neste protocolo é a Cliente-Servidor. Desse modo, para o cliente possa utilizar as funcionalidades disponíveis é necessário que o servidor já esteja rodando e aguardando conexão entre Sockets e a partir disso a conexão entre os dois possa ser estabelecida e a interação das funcionalidades seja possibilitada através do terminal.</p>
+<p>A arquitetura de aplicação utilizada é a Cliente-Servidor. Desse modo, para o cliente possa utilizar as funcionalidades disponíveis é necessário que o servidor já esteja rodando e aguardando conexão entre Sockets e a partir disso a conexão entre os dois possa ser estabelecida e a interação das funcionalidades seja possibilitada.</p>
 
 ### Cliente
 
-<p>A função básica do cliente é interagir com as funcionalidades presentes no terminal. Navegar entre menus, inserir senhas, entre outras formas. Inicialmente é pedido que informe o nome do cliente. Depois aparece um menu contendo as funcionalidades principais da aplicação. Dependendo da escolha das funcionalidades, o cliente é levado para outro menu de login (podendo ser requirido o nome da conta ou o menu e a senha da conta na mesma linha separados por uma vírgula). </p>
+<p>A função básica do cliente é interagir com as funcionalidades presentes no terminal. Navegar entre menus, inserir senhas, entre outras formas. Ao iniciar o lado do cliente aparecerá um menu contendo as funcionalidades principais da aplicação. Dependendo da escolha das funcionalidades, o cliente é levado para outro menu de login (podendo ser requirido o nome da conta(depósito) ou o nome e a senha(saque) da conta na mesma linha separados por uma vírgula). O menu de login não aparecerá caso a opção seja para criar uma conta. </p>
 
 <div align = "center" >
 
@@ -61,29 +83,45 @@ Além das classes <i>ServerSocket</i> e <i>Socket</i> que cuidam, respectivament
 
 #### Protocolos
 
-<p>Tem o papel de definir os padrões a serem utilizados para o envio, o recebimento e o tratamento de dados enviados pela rede.</br>
-Utilizamos o protocolo TCP. 
+<p>Tem o papel de definir os padrões a serem utilizados para o envio, o recebimento e o tratamento de dados enviados.</br>
+Utilizamos o protocolo de transporte TCP. 
 
+#### Mensagens
 
-#### Processos 
+<p>Criamos a classe Mensagem que organiza o formato das mensagens trocadas entre o lado do cliente e o lado do Servidor. Tem variaveis como o status da operação, qual operação está querendo ser feita e uma hash que armazena os possiveis parâmetros.</p>
 
-Os processos adicionados para requisições são:</p>
+#### Status
+
+Os status são:</p>
 
 <div align="center" >
 
-Processos| Função
+Status| Significado
 ----------|--------
-LOGINSENHA|antes de <b>sacar</b> terá um login onde é requerido a <b>nome</b> e a <b>senha</b> da conta.
-LOGINNOME|antes de <b>depositar</b> terá um login onde é requerido a <b>nome</b> da conta
+200|OK
+373|SOLICITAÇÃO
+400|ERROR
+411|PARAMERROR
+
+#### Operações 
+
+As operações para requisições são:</p>
+
+<div align="center" >
+
+Operação| Função
+----------|--------
+LOGINSENHA|antes de <b>sacar</b> terá um login onde é requerido o <b>nome</b> e a <b>senha</b> da conta.
+LOGINNOME|antes de <b>depositar</b> terá um login onde é requerido o <b>nome</b> da conta
 SAQUE| para <b>saque</b> de dinheiro de determinada conta.
-DEPOSITO| para <b>deposito</b> de dinheiro de determinada conta.
+DEPOSITO| para <b>depósito</b> de dinheiro de determinada conta.
 CRIARCONTA|para <b>abrir conta</b>.
 
 </div>
 
 ## Sockets
 
-<p>Os sockets presentes na aplicação são baseados em TCP, onde utilizados as classes <i>ObjectInputStream</i> e <i>ObjectOutputStream</i> para tal troca de dados entre o cliente e servidor pela rede. </p>
+<p>Os sockets presentes na aplicação são baseados em TCP, onde utilizamos as classes <i>ObjectInputStream</i> e <i>ObjectOutputStream</i> para tal troca de dados entre o cliente e servidor. </p>
 
 ### Cliente
 
