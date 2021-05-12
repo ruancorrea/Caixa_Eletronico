@@ -40,13 +40,13 @@ O projeto foi feito em java contendo:
 <p>Caso utilize a IDE Intellij, então abra o software no diretório do projeto. Edite as configurações para criar a execução do servidor e do(s) cliente(s)</p>
 
 <div align = "center">
-   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor1_Intellij.png?raw=true">
+   <img height= "600" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor1_Intellij.png?raw=true">
    </img>
    <p>Configure para poder executar o servidor e, depois, o cliente.</p>
 </div>
 
 <div align = "center">
-   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor2_Intellij.png?raw=true">
+   <img height= "250" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor2_Intellij.png?raw=true">
    </img>
    <p>Clique no botão "Run" para executar.</p>
 </div>
@@ -64,13 +64,13 @@ public class Servidor{
 
 
 <div align = "center">
-   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor3_Intellij.png?raw=true">
+   <img height= "600" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor3_Intellij.png?raw=true">
    </img>
    <p>Servidor em execução.</p>
 </div>
 
 <div align = "center">
-   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/cliente1_Intellij.png?raw=true">
+   <img height= "600" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/cliente1_Intellij.png?raw=true">
    </img>
    <p>Cliente em execução.</p>
 </div>
