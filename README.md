@@ -25,27 +25,62 @@ O projeto foi feito em java contendo:
 ```openjdk version "11.0.10" 2021-01-19```
 
 
-<p>Foram utilizados no ambiente de desenvolvimento o editor de texto VS Code configurado com as extensões JAVA da Microsoft e também a IDE do Intellij.</p>
+<p>Foi utilizado a IDE do Intellij IDEA como ambiente de desenvolvimento e até por isso a recomendados para rodar o projeto.</p>
 
 ### Como executar
 
 <p>Clonando repositório</p>
 
-$ git clone <link repositorio>
+```$ git clone <link repositorio>```
 
-$ cd Caixa_Eletronico
+```$ cd Caixa_Eletronico```
 
 #### IDE Intellij(recomendado)
 
 <p>Caso utilize a IDE Intellij, então abra o software no diretório do projeto. Edite as configurações para criar a execução do servidor e do(s) cliente(s)</p>
 
-<p>Na classe Servidor, presente em Caixa_Eletronico/src/caixaEletronico/server, verifique se o caminho do arquivo(variável path) é <b>"src/caixaEletronico/server/contas.txt"</b> </p>
+<div align = "center">
+   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor1_Intellij.png?raw=true">
+   </img>
+   <p>Configure para poder executar o servidor e, depois, o cliente.</p>
+</div>
+
+<div align = "center">
+   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor2_Intellij.png?raw=true">
+   </img>
+   <p>Clique no botão "Run" para executar.</p>
+</div>
+
+<p>Na classe Servidor, presente em <i>Caixa_Eletronico/src/caixaEletronico/server</i>, verifique se o caminho do arquivo(variável path) é <b>"src/caixaEletronico/server/contas.txt"</b> </p>
+
+```java
+public class Servidor{
+    private Arquivo arquivo;
+    private HashMap<String, Conta> contas;
+    private ServerSocket serverSocket;
+    private String path = "src/caixaEletronico/server/contas.txt";
+}
+```
+
+
+<div align = "center">
+   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/servidor3_Intellij.png?raw=true">
+   </img>
+   <p>Servidor em execução.</p>
+</div>
+
+<div align = "center">
+   <img height= "750" width = "750" src = "https://github.com/ruancorrea/Caixa_Eletronico/blob/granFinally/src/caixaEletronico/assets/cliente1_Intellij.png?raw=true">
+   </img>
+   <p>Cliente em execução.</p>
+</div>
+
 
 #### VS Code
 
 <p>Caso esteja utilizando o VS Code, é necessário instalar as extensões do Java, da Microsoft e a extensão Code Runner, e depois rodar em "Run Java"</p>
 
-<p>Na classe Servidor, presente em Caixa_Eletronico/src/caixaEletronico/server, verifique se o caminho do arquivo(variável path) é <b>"Caixa_Eletronico/src/caixaEletronico/server/contas.txt"</b> </p>
+<p>Na classe Servidor, presente em <i>Caixa_Eletronico/src/caixaEletronico/server</i>, verifique se o caminho do arquivo(variável path) é <b>"Caixa_Eletronico/src/caixaEletronico/server/contas.txt"</b> </p>
 
 ## Introdução
 
