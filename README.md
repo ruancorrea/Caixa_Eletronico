@@ -102,10 +102,11 @@ Status| Significado
 373|SOLICITAÇÃO
 400|ERROR
 411|PARAMERROR
+</div>
 
 #### Operações 
 
-As operações para requisições são:</p>
+<p>As operações para requisições são:</p>
 
 <div align="center" >
 
