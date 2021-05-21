@@ -12,6 +12,8 @@
    Alunos:<br>
     &emsp;&emsp;&emsp;&emsp;<a href = "https://github.com/joaopedrobritot" target="_blank" >Joao Pedro Brito Tomé</a><br/>
     &emsp;&emsp;&emsp;&emsp;<a href = "https://github.com/ruancorrea" target="_blank" >Ruan Heleno Correa da Silva</a></p>
+   
+   <a target="_blank" href = "https://github.com/ruancorrea/Caixa_Eletronico/blob/main/Projeto%20Caixa%20Eletr%C3%B4nico.pdf"><b>DOCUMENTO DO PROJETO</b></a>
 </div>
 
 ### Ambientes e versões
