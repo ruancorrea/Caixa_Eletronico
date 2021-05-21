@@ -27,7 +27,7 @@ public class Cliente {
     }
 
     public String newString(){
-        return entrada.next();
+        return entrada.nextLine();
     }
 
     public int newInt() {

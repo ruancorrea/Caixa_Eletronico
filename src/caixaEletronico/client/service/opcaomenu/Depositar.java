@@ -16,7 +16,7 @@ public class Depositar implements OpcaoMenu {
 
     public Depositar(Cliente cliente){
         this.cliente = cliente;
-        m = new Mensagem("NOVACONTA");
+        m = new Mensagem("DEPOSITO");
     }
 
     public void setNome(String nome) {

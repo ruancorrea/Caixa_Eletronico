@@ -25,7 +25,7 @@ public class AbrirConta implements OpcaoMenu {
     private void abrindoConta() throws IOException, ClassNotFoundException {
         String[] dadosConta = null;
         while(true){
-            System.out.println("Informe nome, senha e saldo inicial, separados por vírgula.");
+            System.out.println("Informe nome, senha e saldo inicial, separados por vírgula. No formato 'nome,senha,saldo'.");
             System.out.print("EXEMPLO: fulano,detal10,20\n>> ");
             String dados = cliente.newString();
             dadosConta = dados.split(",");

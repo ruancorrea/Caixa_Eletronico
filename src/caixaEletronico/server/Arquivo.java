@@ -20,7 +20,6 @@ public class Arquivo {
         while ((dados = leitor.readLine()) != null) {
             String[] dadosConta = dados.split(",");
             Conta conta = new Conta(dadosConta[0], dadosConta[1], Integer.parseInt(dadosConta[2]));
-            //System.out.println(conta.getNome());
             contas.put(conta.getNome(), conta);
         }
         System.out.println("Dados carregados.");
