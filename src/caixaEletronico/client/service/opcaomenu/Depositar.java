@@ -54,7 +54,7 @@ public class Depositar implements OpcaoMenu {
     }
 
     private void depositando() throws IOException, ClassNotFoundException {
-        System.out.print("Digite o valor que quer depositar. Deposito máximo de 500 reais.(apenas numeros, ex: 200)\n>> ");
+        System.out.print("Digite o valor que quer depositar. Deposito máximo de 500 reais.(apenas numeros inteiros, ex: 200)\n>> ");
         valor = cliente.newInt();
         if(verificando(valor)){
             cliente.criandoSocket();

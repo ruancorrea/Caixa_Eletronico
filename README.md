@@ -89,7 +89,6 @@ public class Servidor{
 <b>Porta padrão:</b> 5000 <br/>
 <b>Arquitetura de aplicação:</b> Cliente-Servidor <br/>
 <b>Protocolo na camada de transporte:</b> TCP <br/>
-<b>Padrão de caracteres:</b> ASCII <br/>
 </p>
 
 ## Cliente-Servidor
@@ -248,20 +247,6 @@ public void iniciarServico() throws ClassNotFoundException {
         }
     }
 ```
-
-## Dificuldades encontradas
-
-<p><b>Uso das threads</b> - inicialmente tratamos de incluir threads apenas na funcionalidade de saque, para que a cada saque fosse criado uma thread.</p>
-<p><b>Uso do envio erecebimento de dados Stream (inputStream e outputStream)</b> - Houve um tempo para entendermos bem do uso do Stream e seus tipos.</p>
-<p>De certa forma, criamos uma classe para tratamento dos dados, chamada Mensagem,
-que tem uma hash que age dinamicamente na adição de parametros.</p>
-<p><b>Controle do saque</b> - O controle do saque tem a ver com o saque simultaneo e na proteção do dinheiro de cada um.</p>
-<p>Antes, como dito acima, criavamos uma thread para cada ato de sacar, mas depois vimos que tornar a criação da thread a cada requisição do cliente seria algo interessante, dessa forma criamos o clientThread, utilizando o exemplo disponibilizado pelo professor, e também "syncronized" para o controle de saques simultaneos da mesma conta.</p>
-
-## Ideias
-<p>Criação de uma API conectada a um banco de dados online(podendo utilizar nodeJS e mongoDB).</p>
-<p>Adição de algumas funcionalidades - edição de dados, exclusão de contas, help(para duvidas)...<p>
-<p>Aumentar segurança para proteção dos dados de cada conta.</p>
 
 
 ## Padrões de Projeto utilizados
