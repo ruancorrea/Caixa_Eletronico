@@ -33,7 +33,7 @@ O projeto foi feito em java contendo:
 
 <p>Clonando repositório</p>
 
-```$ git clone <link repositorio>```
+```$ git clone https://github.com/ruancorrea/Caixa_Eletronico```
 
 ```$ cd Caixa_Eletronico```
 
