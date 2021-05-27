@@ -27,7 +27,7 @@ O projeto foi feito em java contendo:
 ```openjdk version "11.0.10" 2021-01-19```
 
 
-<p>Foi utilizado a IDE do Intellij IDEA como ambiente de desenvolvimento e até por isso a recomendados para rodar o projeto.</p>
+<p>Foi utilizado a IDE do Intellij IDEA como ambiente de desenvolvimento e até por isso a recomendamos para rodar o projeto.</p>
 
 ### Como executar
 
