@@ -33,9 +33,13 @@ O projeto foi feito em java contendo:
 
 <p>Clonando repositório</p>
 
-```$ git clone https://github.com/ruancorrea/Caixa_Eletronico```
+```
+git clone https://github.com/ruancorrea/Caixa_Eletronico
+```
 
-```$ cd Caixa_Eletronico```
+```
+cd Caixa_Eletronico
+```
 
 #### IDE Intellij(recomendado)
 
